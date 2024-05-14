@@ -1,6 +1,7 @@
 export interface iTheme {
   colors: {
     primary: string
+    primaryOver: string
     secondary: string
     white: string
     black: string
@@ -32,6 +33,7 @@ export interface iTheme {
 export const darkTheme: iTheme = {
   colors: {
     primary: '#864CFF',
+    primaryOver: '#864CCC',
     secondary: '#41FFC6',
     white: '#F5F5F5',
     black: '#141414',
@@ -63,6 +65,7 @@ export const darkTheme: iTheme = {
 export const lightTheme: iTheme = {
   colors: {
     primary: '#864CFF',
+    primaryOver: '#864CCC',
     secondary: '#2CC798',
     white: '#333',
     black: '#f7f7fd',

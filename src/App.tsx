@@ -7,7 +7,7 @@ import { AuthProvider } from './context/auth'
 export function App() {
   return (
     <HelmetProvider>
-      <Helmet titleTemplate="%s | GodotSite" />
+      <Helmet titleTemplate="%s | LevelUp" />
       <ThemeProvider>
         <AuthProvider>
           <AppRouter />
