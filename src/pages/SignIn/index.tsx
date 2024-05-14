@@ -59,7 +59,7 @@ export function SignIn() {
               <h1>Fazer Login</h1>
               <p>
                 Ainda não tem conta?{' '}
-                <a title="Cadastre-se!" href="#">
+                <a title="Cadastre-se!" href="/signup">
                   Cadastre-se!
                 </a>
               </p>
