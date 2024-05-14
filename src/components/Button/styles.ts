@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components'
 
 export const StyledButton = styled.button`
-  background-color: ${(props) => props.theme.colors.gray['gray-100']};
-  color: ${(props) => props.theme.colors.gray['gray-500']};
-  border: 1px solid ${(props) => props.theme.colors.gray['gray-300']};
+  background-color: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
+  border: 1px solid ${(props) => props.theme.colors.white};
   border-radius: 6px;
   padding: 10px 20px;
   font-size: 16px;
@@ -15,9 +15,9 @@ export const StyledButton = styled.button`
     border-color 0.3s;
 
   &:hover {
-    background-color: ${(props) => props.theme.colors.gray['gray-200']};
-    color: ${(props) => props.theme.colors.gray['gray-600']};
-    border-color: ${(props) => props.theme.colors.gray['gray-400']};
+    background-color: ${(props) => props.theme.colors.primaryOver};
+    color: ${(props) => props.theme.colors.white};
+    border-color: ${(props) => props.theme.colors.green['green-500']};
   }
 
   &:focus {
