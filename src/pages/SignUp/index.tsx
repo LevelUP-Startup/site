@@ -19,18 +19,13 @@ import { AuthContext } from '../../context/auth'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 const signInForm = z.object({
-  email: z.string().email({ message: 'informe um email valido!' }),
+  email: z.string().email({ message: 'Informe um email válido!' }),
   password: z
     .string()
-    .min(3, { message: 'A Senha precisa ter pelo menos 3 letras.' }),
-  confirmPassword: z
-    .string()
-    .min(3, {
-      message: 'A senha de confirmação precisa ter pelo menos 3 caracteres.',
-    })
-    .refine((value) => value === data.password, {
-      message: 'As senhas não coincidem.',
-    }),
+    .min(3, { message: 'A senha precisa ter pelo menos 3 letras.' }),
+  confirmPassword: z.string().min(3, {
+    message: 'A senha de confirmação precisa ter pelo menos 3 caracteres.',
+  }),
 })
 
 type SignInForm = z.infer<typeof signInForm>
@@ -47,8 +42,13 @@ export function SignUp() {
   const { signed, signIn } = useContext(AuthContext)
 
   async function handleSignIn(data: SignInForm) {
-    console.log('data', data)
+    // Validar se as senhas coincidem
+    if (data.password !== data.confirmPassword) {
+      toast.error('As senhas não coincidem.')
+      return
+    }
 
+    console.log('data', data)
     // try {
     //   await signIn(data)
     // } catch (e) {
@@ -95,10 +95,10 @@ export function SignUp() {
               </StyledLabel>
               <StyledInputCadastro
                 type="password"
-                placeholder="Informe sua senha:"
+                placeholder="Confirme sua senha:"
                 {...register('confirmPassword')}
               />
-              <p>{errors.password?.message}</p>
+              <p>{errors.confirmPassword?.message}</p>
 
               <Button disabled={isSubmitting}>Cadastrar</Button>
             </StyledFormCadastro>
